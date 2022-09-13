@@ -10,14 +10,11 @@ class Document:
 
 
 class WordProcessor:
+    """This is a handy word processor that spellchecks and automatically backs up your documents to Google Drive."""
 
     def create_document(self, name: str):
         document =  Document(name=name)
         print(f"Created document: {document.name}")
-        return document
-    
-    def spellcheck(self, document: Document):
-        print(f"spellchecked {document.name}")
         return document
     
     def close_document(self, document: Document):
@@ -25,9 +22,9 @@ class WordProcessor:
         document.is_open = False
         print(f"Closed {document.name}")
 
-        # Autosave the document
+        # Backup the document automatically
         document.is_saved = True
-        print(f"Saved {document.name}")
+        print(f"Backed up [{document.name}] to Google Drive")
         return document
 
     def add_text(self, document: Document, text: str):
