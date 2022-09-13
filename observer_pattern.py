@@ -56,7 +56,7 @@ class EventManager:
             print(f"{listener} unsubscribed from {event_type}")
     
     def notify(self, event_type, data):
-        for listener in self.listeners.get(event_type, []):
+        for listener in self.listeners.get(event_type, set()):
             print(f"Notifying {listener}")
             listener.update(data)
 
