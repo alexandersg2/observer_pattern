@@ -46,9 +46,8 @@ class EventManager:
     
     def subscribe(self, event_type, listener: EventListener):
         self.listeners.setdefault(event_type, set())
-        if listener not in self.listeners:
-            self.listeners[event_type].add(listener)
-            print(f"{listener} subscribed to {event_type}")
+        self.listeners[event_type].add(listener)
+        print(f"{listener} subscribed to {event_type}")
     
     def unsubscribe(self, event_type, listener: EventListener):
         if event_type in self.listeners:
